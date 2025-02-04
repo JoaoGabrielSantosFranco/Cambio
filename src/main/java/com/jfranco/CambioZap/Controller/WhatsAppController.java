@@ -17,9 +17,9 @@ public class WhatsAppController {
         this.whatsAppService = whatsAppService;
     }
 
-    @PostMapping
+    @PostMapping("/currency")
     public ResponseEntity<String> receberMensagem(@RequestBody String mensagem) {
-        String response = WhatsAppService.getCurrencyOrigin(mensagem);
+        String response = whatsAppService.getCurrencyOrigin(mensagem);
         return ResponseEntity.ok(response);
     }
 }
