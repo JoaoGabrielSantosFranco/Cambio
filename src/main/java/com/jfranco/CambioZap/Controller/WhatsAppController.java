@@ -1,6 +1,7 @@
 package com.jfranco.CambioZap.Controller;
 
 import com.jfranco.CambioZap.Service.WhatsAppService;
+import com.jfranco.CambioZap.model.CurrencyRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +19,8 @@ public class WhatsAppController {
     }
 
     @PostMapping("/currency")
-    public ResponseEntity<String> receberMensagem(@RequestBody String mensagem) {
-        String response = whatsAppService.getCurrencyOrigin(mensagem);
+    public ResponseEntity<String> receiveMessage(@RequestBody CurrencyRequest request) {
+        String response = whatsAppService.processConversion(request.getMessage());
         return ResponseEntity.ok(response);
     }
 }

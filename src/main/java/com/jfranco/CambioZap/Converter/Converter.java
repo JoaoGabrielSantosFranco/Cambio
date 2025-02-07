@@ -2,14 +2,18 @@ package com.jfranco.CambioZap.Converter;
 
 import com.jfranco.CambioZap.Converter.Response.CurrencyResponse;
 import com.jfranco.CambioZap.Exceptions.InvalidConversionRateException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Optional;
+
 @Component
 public class Converter {
 
-    private static final String API_URL = "https://economia.awesomeapi.com.br/json/daily/";
+    @Value("${api.url}")
+    private String apiUrl;
 
     private final RestTemplate restTemplate;
 
@@ -18,7 +22,7 @@ public class Converter {
     }
 
     public double getConversionRate(String currencyOrigin) {
-        String url = UriComponentsBuilder.fromHttpUrl(API_URL)
+        String url = UriComponentsBuilder.fromHttpUrl(apiUrl)
                 .pathSegment(currencyOrigin)
                 .toUriString();
         CurrencyResponse[] response = restTemplate.getForObject(url, CurrencyResponse[].class);
@@ -27,8 +31,11 @@ public class Converter {
     }
 
     private void validateResponse(CurrencyResponse[] response) {
-        if (response == null || response.length == 0 || response[0].getAsk() == null || Double.parseDouble(response[0].getAsk()) <= 0) {
-            throw new InvalidConversionRateException("Taxa de conversão inválida ou não encontrada.");
-        }
+        Optional.ofNullable(response)
+                .filter(r -> r.length > 0 && r[0].getAsk() != null)
+                .map(r -> Double.parseDouble(r[0].getAsk()))
+                .filter(rate -> rate > 0)
+                .orElseThrow(() -> new InvalidConversionRateException("Taxa de conversão inválida ou não encontrada."));
     }
+
 }

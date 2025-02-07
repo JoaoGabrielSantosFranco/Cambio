@@ -1,10 +1,8 @@
 package com.jfranco.CambioZap.Service;
 
 import com.jfranco.CambioZap.Converter.Converter;
+import com.jfranco.CambioZap.Converter.CurrencyEnum;
 import org.springframework.stereotype.Service;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class WhatsAppService {
@@ -15,29 +13,18 @@ public class WhatsAppService {
         this.converter = converter;
     }
 
-    public String getCurrencyOrigin(String message) {
-        String currencyOrigin = extractCurrencyOrigin(message);
+    public String processConversion(String message) {
+        String currencyCode = CurrencyEnum.getApiCodeFromAlias(message.trim().toLowerCase());
 
-        if ("Formato inválido".equals(currencyOrigin)) {
-            return "Formato de moeda inválido. Use o formato #moeda.";
+        if (currencyCode == null) {
+            return "Moeda não suportada ou formato inválido. Envie apenas o código da moeda, como 'usd' ou 'euro'.";
         }
 
         try {
-            double conversionRate = converter.getConversionRate(currencyOrigin);
-            return "Taxa de conversão de " + currencyOrigin + ": " + conversionRate;
+            double conversionRate = converter.getConversionRate(currencyCode);
+            return String.format("1 %s é aproximadamente %.2f BRL.", message.trim().toUpperCase(), conversionRate);
         } catch (Exception e) {
-            return "Não foi possível obter a taxa de conversão para " + currencyOrigin + ".";
-        }
-    }
-
-    private String extractCurrencyOrigin(String message) {
-        Pattern pattern = Pattern.compile("#(\\w+)");
-        Matcher matcher = pattern.matcher(message.toLowerCase());
-
-        if (matcher.find()) {
-            return matcher.group(1).toUpperCase();
-        } else {
-            return "Formato inválido";
+            return "Não foi possível obter a taxa de conversão para " + message.trim().toUpperCase() + ".";
         }
     }
 }
