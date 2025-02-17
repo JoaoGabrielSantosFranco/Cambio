@@ -1,15 +1,15 @@
-package com.jfranco.CambioZap.Service;
+package com.jfranco.CambioZap.Cambio.Service;
 
-import com.jfranco.CambioZap.Converter.Converter;
-import com.jfranco.CambioZap.Converter.CurrencyEnum;
+import com.jfranco.CambioZap.Cambio.Converter.Converter;
+import com.jfranco.CambioZap.Cambio.Converter.CurrencyEnum;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WhatsAppService {
+public class CambioAppService {
 
     private final Converter converter;
 
-    public WhatsAppService(Converter converter) {
+    public CambioAppService(Converter converter) {
         this.converter = converter;
     }
 

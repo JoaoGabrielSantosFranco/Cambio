@@ -1,7 +1,7 @@
-package com.jfranco.CambioZap.Controller;
+package com.jfranco.CambioZap.Cambio.Controller;
 
-import com.jfranco.CambioZap.Service.WhatsAppService;
-import com.jfranco.CambioZap.model.CurrencyRequest;
+import com.jfranco.CambioZap.Cambio.Service.CambioAppService;
+import com.jfranco.CambioZap.Cambio.model.CurrencyRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class WhatsAppController {
+public class CambioAppController {
 
-    private final WhatsAppService whatsAppService;
+    private final CambioAppService cambioAppService;
 
     @Autowired
-    public WhatsAppController(WhatsAppService whatsAppService) {
-        this.whatsAppService = whatsAppService;
+    public CambioAppController(CambioAppService cambioAppService) {
+        this.cambioAppService = cambioAppService;
     }
 
     @PostMapping("/currency")
     public ResponseEntity<String> receiveMessage(@RequestBody CurrencyRequest request) {
-        String response = whatsAppService.processConversion(request.getMessage());
+        String response = cambioAppService.processConversion(request.getMessage());
         return ResponseEntity.ok(response);
     }
 }

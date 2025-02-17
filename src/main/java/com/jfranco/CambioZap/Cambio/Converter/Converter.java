@@ -1,7 +1,7 @@
-package com.jfranco.CambioZap.Converter;
+package com.jfranco.CambioZap.Cambio.Converter;
 
-import com.jfranco.CambioZap.Converter.Response.CurrencyResponse;
-import com.jfranco.CambioZap.Exceptions.InvalidConversionRateException;
+import com.jfranco.CambioZap.Cambio.Converter.Response.CurrencyResponse;
+import com.jfranco.CambioZap.Cambio.Exceptions.InvalidConversionRateException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

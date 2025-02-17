@@ -1,4 +1,4 @@
-package com.jfranco.CambioZap.Configurations;
+package com.jfranco.CambioZap.Cambio.Configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

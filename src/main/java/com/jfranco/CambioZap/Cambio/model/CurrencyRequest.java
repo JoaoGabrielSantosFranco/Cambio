@@ -1,4 +1,4 @@
-package com.jfranco.CambioZap.model;
+package com.jfranco.CambioZap.Cambio.model;
 
 import lombok.Data;
 

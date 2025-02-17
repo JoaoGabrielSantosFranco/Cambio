@@ -1,4 +1,4 @@
-package com.jfranco.CambioZap.Converter.Response;
+package com.jfranco.CambioZap.Cambio.Converter.Response;
 
 import lombok.Getter;
 import lombok.Setter;

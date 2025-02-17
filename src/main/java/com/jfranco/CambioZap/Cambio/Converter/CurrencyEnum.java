@@ -1,4 +1,4 @@
-package com.jfranco.CambioZap.Converter;
+package com.jfranco.CambioZap.Cambio.Converter;
 
 import java.util.HashMap;
 import java.util.Map;
