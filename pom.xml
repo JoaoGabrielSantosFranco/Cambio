@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jfranco</groupId>
-	<artifactId>CambioZap</artifactId>
+	<artifactId>CambioTelegram</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CambioZap</name>
+	<name>CambioTelegram</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -56,6 +56,12 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.36</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.pengrad</groupId>
+			<artifactId>java-telegram-bot-api</artifactId>
+			<version>6.9.1</version>
 		</dependency>
 
 	</dependencies>
