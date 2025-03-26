@@ -17,7 +17,7 @@ A ideia do projeto surgiu da necessidade de verificar rapidamente o valor de moe
 ## 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/JoaoGabrielSantosFranco/CambioTelegram.git
+git clone https://github.com/JoaoGabrielSantosFranco/TeleCambio.git
 cd CambioTelegram
 ```
 
