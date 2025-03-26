@@ -18,7 +18,7 @@ A ideia do projeto surgiu da necessidade de verificar rapidamente o valor de moe
 
 ```bash
 git clone https://github.com/JoaoGabrielSantosFranco/TeleCambio.git
-cd CambioTelegram
+cd TeleCambio
 ```
 
 ## 2. Configurar as Propriedades da Aplicação
