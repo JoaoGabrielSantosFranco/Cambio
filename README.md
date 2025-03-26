@@ -51,36 +51,18 @@ mvn spring-boot:run
 
 - O bot recebe comandos no Telegram e busca a cotação da moeda desejada usando a API da AwesomeAPI.
 - Retorna informações como código da moeda, nome, taxa de compra.
-
 # Exemplo de Uso
 
-No chat do Telegram, envie uma mensagem como:
+1. No Telegram, busque por **@CambiooBot**.
+2. No chat do Telegram, envie uma das seguintes mensagens, dependendo da moeda desejada:
+  - Para obter a taxa de câmbio do dólar:  ```dolar```
 
-```
-dolar
-```
+  - Para obter a taxa de câmbio do euro:    ```euro```
 
-O bot responderá com a taxa de câmbio atual do dólar.
 
-# Contribuição
 
-1. Fork este repositório.
-2. Crie um branch com a nova funcionalidade:
+3. O bot responderá com a taxa de câmbio atual da moeda solicitada.
 
-```bash
-git checkout -b minha-feature
-```
 
-3. Commit suas mudanças:
-
-```bash
-git commit -m 'feat: minha nova funcionalidade'
-```
-
-4. Push para o branch:
-
-```bash
-git push origin minha-feature
-```
-
-5. Abra um Pull Request.
+### Exemplo:
+![image](https://github.com/user-attachments/assets/1d11f269-7219-4b53-b512-bf9d5e2daf70)
